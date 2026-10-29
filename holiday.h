@@ -1,7 +1,9 @@
-#include <dayOfYear.h>
-#include <iostream>
+#pragma once
+#include "dayOfYear.h"
+#include <string>
 
-
+namespace JungHyewon2693292
+{
 class holiday
 {
 	std::string name; 
@@ -40,3 +42,6 @@ public:
 	void setName(const std::string& n) {name = n;}
 	void setDate(const dayOfYear& d) { date = d; }
 };
+}
+
+
