@@ -101,21 +101,26 @@ public:
 	dayOfYear operator++() 
 	{
 		++day; updateDay();            
-		return dayOfYear{month, day};
+		return *this;
 	}
 	dayOfYear operator++(int)
 	{   
-		dayOfYear temp{month, day};
-		day++; updateDay();   
+		dayOfYear temp{*this};
+		++(*this);
 		return temp;
 	}
+	dayofYear& operator+=(int d)
+{
+	day+=d; updateDay();
+	return *this;
+}
 	friend bool operator==(const dayOfYear& d1, const dayOfYear& d2)
 	{
 		return d1.month == d2.month && d1.day == d2.day;
 	}
-	friend dayOfYear operator+(const dayOfYear& d1, const dayOfYear& d2)
+	dayOfYear operator+(int d)
 	{
-		return dayOfYear{d1.month + d2.month, d1.day + d2.day};
+		return (*this)+=d;
 	}
 };
 };
