@@ -1,14 +1,25 @@
-#include <dayOfYear.h>
-#include <holidayGroup.h>
-#include <iostream>
 
-const int daysInMonth[13]{0,31,28,31,30,31,30,31,31,30,31,30,31};  
+#include "holidayGroup.h"
 
-void main(){
 
-    addHoliday();
-    addHoliday();
-    addHoliday();
+ 
+
+int main(){
+
+    using namespace JungHyewon2693292;
+    holiday h1{"NewYear day",{1,1}};
+    holiday h2{"IndependenceDay",{8,15}};
+    holiday h3{"Christmas",{12,25}};
+
+    holidayGroup* hgPtr{new holidayGroup{"Korean Holiday"}};
+    hgPtr->addHoliday(h1);
+    hgPtr->addHoliday(h2);
+    hgPtr->addHoliday(h3);
+
+    hgPtr->print();
+    delate hgPtr;
+
+    return 0;
 };
 
 // 다음은 실습시간에 다룬 dayOfYear, holiday 클래스입니다. 
